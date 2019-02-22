@@ -1,4 +1,9 @@
 window.Placeholder = (function(jQuery) {
+
+    const Is = {
+        IE: function () { return navigator.userAgent.indexOf('Trident/') != -1 },
+    };
+
     const $ = jQuery;
 
     function transformToJqueryObject(target) {
@@ -10,6 +15,9 @@ window.Placeholder = (function(jQuery) {
     }
 
     return function _Placeholder(target) {
+
+        // If IE run
+        if (!Is.IE()) return false;
 
         // If jQuery Object?
         const $target = transformToJqueryObject(target);
